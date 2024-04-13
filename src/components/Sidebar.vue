@@ -1,6 +1,7 @@
-<script setup>
-import {ref} from 'vue'
-let value1 = ref(86)
+<script setup lang="ts">
+
+
+
 </script>
 
 <template>

@@ -1,15 +1,16 @@
-<script setup>
-const folders = [
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const folders = ref([
     {
-        id:1,
+        id: 1,
         name: 'Thư mục khong co tieu de ahhihi'
     },
     {
-        id:2,
+        id: 2,
         name: 'Thong bao lich hoc 2002'
     }
-]
-
+])
 </script>
 
 
@@ -21,15 +22,9 @@ const folders = [
                     <Folder />
                 </el-icon>
                 {{ folder.name }}
-
             </span>
-
         </div>
-
     </div>
-
-
-
 </template>
 
 <style lang="scss" module>
