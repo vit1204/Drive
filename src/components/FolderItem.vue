@@ -4,7 +4,7 @@ import { ref } from 'vue';
 const folders = ref([
     {
         id: 1,
-        name: 'Thư mục khong co tieu de ahhihi'
+        name: 'thanhvietdeptrai'
     },
     {
         id: 2,
@@ -16,6 +16,7 @@ const folders = ref([
 
 <template>
     <div :class="$style.folderFormat">
+        
         <div :class="$style.folderItem" v-for="folder in folders" :key="folder.id">
             <span>
                 <el-icon>
