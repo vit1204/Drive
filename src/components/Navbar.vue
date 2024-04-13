@@ -4,7 +4,6 @@ import { Grid, QuestionFilled } from '@element-plus/icons-vue';
 
 
 
-
 </script>
 
 <template>
@@ -68,7 +67,7 @@ import { Grid, QuestionFilled } from '@element-plus/icons-vue';
                         <el-dropdown trigger="click">
 
                             <el-icon size="25" style="margin-right: 20px;">
-                               <Grid />
+                                <Grid />
                             </el-icon>
                         </el-dropdown>
                         <span>
@@ -80,7 +79,7 @@ import { Grid, QuestionFilled } from '@element-plus/icons-vue';
 
                     </div>
                 </div>
-
+               
             </el-header>
 
 
@@ -108,4 +107,5 @@ import { Grid, QuestionFilled } from '@element-plus/icons-vue';
         margin-top: 10px;
     }
 }
+
 </style>

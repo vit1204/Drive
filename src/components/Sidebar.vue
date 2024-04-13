@@ -1,3 +1,8 @@
+<script setup>
+import {ref} from 'vue'
+let value1 = ref(86)
+</script>
+
 <template>
     <el-container>
         <el-aside width="270px" style="flex: 0 0 200px;">
@@ -97,6 +102,15 @@
                     </span>
 
 
+                </div>
+                <div :class="$style.sideBarLeftFooter">
+                    <div :class="$style.sideBarLeftSlider" ></div>
+                    <p>
+                        Đã sử dụng 12,01 GB trong tổng số 15 GB
+                    </p>
+                    <button :class="$style.sideBarLeftFooterBtn">
+                        Mua thêm bộ nhớ
+                    </button>
                 </div>
 
 
@@ -208,7 +222,39 @@ box-shadow: var(--dt-shadow-elevation-2, 0 1px 2px 0 rgba(60, 64, 67, .3), 0 2px
     
 }
 
+.sideBarLeftFooter{
+   
+    p {
+            width: 70%;
+          
+            font-size: 14px;
+            margin-left: 39px;
+} 
+.sideBarLeftSlider{
+    width: 150px;
+    margin-left: 39px;
+    height:3px;
+    background-color: var(--color-primary);
+   
+}
 
+}
 
+.sideBarLeftFooterBtn {
+    width: 150px;
+    margin-left: 40px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid var(--color-primary);
+    font-size: 14px;
+    border-radius: 20px;
+    transition: all 0.3s;
+    color: var(--color-primary);
+    font-weight: 500;
+    cursor: pointer;
+    &:hover {
+        background-color: #f4f4f4;
+    }
+}
 
 </style>
