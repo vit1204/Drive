@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
+
 import "../assets/custome.scss"
 import MenuApp from "./MenuApp.vue";
 import Search from "./Search.vue";
 
 
-let isCollapse = ref<Boolean>(false);
+
 </script>
 
 <template>
@@ -115,9 +115,9 @@ let isCollapse = ref<Boolean>(false);
                                                 </button>
                                             </div>
 
-                                            <el-menu ellipsis="true"
+                                            <el-menu 
                                                 style="width: 90%; margin-left: 25px; margin-top: 20px; border-radius: 20px;"
-                                                default-active="2" class="el-menu-vertical-demo" :collapse="isCollapse">
+                                                default-active="2" class="el-menu-vertical-demo" >
                                                 <el-sub-menu index="1">
                                                     <template #title>
                                                         <div
