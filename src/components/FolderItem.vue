@@ -4,7 +4,7 @@ import { ref } from 'vue';
 const folders = ref([
     {
         id: 1,
-        name: 'thanhvietdeptrai'
+        name: 'aloalo'
     },
     {
         id: 2,

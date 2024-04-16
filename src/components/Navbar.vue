@@ -1,23 +1,30 @@
 <script setup lang="ts">
+import { ref } from "vue";
+import "../assets/custome.scss"
+import MenuApp from "./MenuApp.vue";
+import Search from "./Search.vue";
 
+
+let isCollapse = ref<Boolean>(false);
 </script>
 
 <template>
-    <el-container>
 
+    <el-header>
         <div :class="$style.navbar">
-            <el-header style=" width: 100%; margin-left:260px; font-size: 12px">
+            <el-header >
                 <div :class="$style.navbarInputWrapper">
+                    <div :class="$style.sidebarHeader">
+                        <img src="https://ssl.gstatic.com/images/branding/product/2x/drive_2020q4_48dp.png"
+                            style="width: 40px;height: 40px;margin-right: 10px;" alt="">
+                        <span>Drive</span>
+                    </div>
 
 
-                    <input
-                        style="width: 516px;height: 46px;border: none;background-color: var(--color-gray-lighter);border-radius: 24px;"
-                        type="text" placeholder="Please input">
-
+                    <Search />
 
 
                     <div :class="$style.navbarIconWrapper">
-
                         <el-dropdown trigger="click">
                             <svg style="margin-right: 20px;" viewBox="0 0 24 24" width="24px" height="24px"
                                 class=" a-s-fa-Ha-pa c-qd" focusable="false" fill="currentColor">
@@ -73,51 +80,206 @@
                         </el-dropdown>
 
                         <el-dropdown trigger="click">
+                            <el-icon size="20" style="margin-right:20px">
+                                <Menu />
+                            </el-icon>
+                            <template #dropdown>
 
-                            <svg  class="gb_h" focusable="false" viewBox="0 0 24 24">
-                                <path
-                                    d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z">
-                                </path>
-                                <image src="https://ssl.gstatic.com/gb/images/bar/al-icon.png" alt="" height="24"
-                                    width="24" style="border:none;display:none \9"></image>
-                            </svg>
+                                <MenuApp />
+
+                            </template>
                         </el-dropdown>
-                        <span>
-                            <img src="../../public/avatar-trang-4.jpeg"
-                                style="width: 32px;height: 32px;border-radius: 50%;object-fit:cover; " alt="">
-                        </span>
+                        <ElDropdown trigger="click">
+                            <span>
+                                <img src="../../public/avatar-trang-4.jpeg"
+                                    style="width: 32px;height: 32px;border-radius: 50%;object-fit:cover; " alt="">
+                            </span>
+                            <template #dropdown>
+                                <el-dropdown-menu>
+                                    <div :class="$style.managePopupFormat">
+                                        <div :class="$style.managePopupContainer">
+                                            <div :class="$style.managePopupHeader">
+                                                <div :class="$style.managePopupTitle">
+                                                    <p>Nguyenthanhviet@gmai.com</p>
+                                                    <el-icon>
+                                                        <Close />
+                                                    </el-icon>
+                                                </div>
+
+                                                <img style="width: 100px;
+                                                    border-radius: 50%; object-fit: cover; "
+                                                    src="../../public/avatar-trang-4.jpeg" alt="">
+                                                <p :class="$style.textBig">Chào việt</p>
+                                                <button :class="$style.sideBarLeftFooterBtn">
+                                                    Quản lý tài khoản google của bạn
+                                                </button>
+                                            </div>
+
+                                            <el-menu ellipsis="true"
+                                                style="width: 90%; margin-left: 25px; margin-top: 20px; border-radius: 20px;"
+                                                default-active="2" class="el-menu-vertical-demo" :collapse="isCollapse">
+                                                <el-sub-menu index="1">
+                                                    <template #title>
+                                                        <div
+                                                            style="display: flex; align-items: center; justify-content: space-between">
+                                                            <img src="../../public/avatar-trang-4.jpeg"
+                                                                style="width: 32px;height: 32px;border-radius: 50%;object-fit:cover; "
+                                                                alt="">
 
 
+                                                            <span
+                                                                style="margin-left: 20px;">nguyenthanhviet@gmail.com</span>
 
+                                                        </div>
+
+                                                    </template>
+                                                    <el-menu-item style="padding-left: 20px; " index="1-1">
+
+                                                        <el-icon>
+                                                            <CirclePlusFilled />
+
+                                                        </el-icon>
+                                                        <span>Thêm tài khoản khác</span>
+
+                                                    </el-menu-item>
+
+
+                                                    <el-menu-item 
+                                                        style="border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;"
+                                                        index="1-4-1">
+                                                        <font-awesome-icon :icon="['fas', 'right-from-bracket']" style="margin-right: 20px;" />
+                                                        <span>Đăng xuất khỏi tất cả các tài khoản</span>
+                                                    </el-menu-item>
+                                                </el-sub-menu>
+
+                                            </el-menu>
+                                            <div style="display: flex; justify-content: center;
+                                                align-items: center;gap: 20px;">
+                                                <p>Chính sách quyền riêng tư</p>
+                                                <p>.</p>
+                                                <p>Điều khoản dịch vụ</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </el-dropdown-menu>
+                            </template>
+                        </ElDropdown>
                     </div>
                 </div>
-
             </el-header>
-
-
-
-
         </div>
-    </el-container>
+    </el-header>
+
 
 </template>
 
 <style scoped lang="scss" module>
-.navbarInputWrapper {
-   
-    input{
-        margin-right: 250px;
-        padding-left: 20px;
-    }
-
-    margin-top: 9px;
+.sidebarHeader {
+    position: relative;
+    
+    cursor: pointer;
     display: flex;
-    justify-content: space-between;
+    /* Sử dụng flexbox để sắp xếp các phần tử theo hàng */
     align-items: center;
-   
-    .navbarIconWrapper{
-        margin-top: 10px;
+    
+    /* Căn chỉnh các phần tử theo chiều dọc (trục chính) */
+
+
+    font-size: 1.5rem;
+
+    span {
+        font-size: 22px;
+        color: rgb(95, 99, 104);
+    }
+}
+.navbar {
+    width: 100%;
+        height: 100%;
+    
+    
+    .navbarInputWrapper {
+      
+        margin-top: 9px;
+        display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            overflow-x: auto;
+            font-size: 12px;
+            align-items: center;
+        flex-wrap: nowrap;
+
+        input {
+            margin-right: 580px;
+            padding-left: 20px;
+        }
+
+        .navbarIconWrapper {
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
     }
 }
 
+.managePopupFormat {
+    min-width: 412px;
+    height: auto;
+
+    background-color: #e9eef6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 3px rgba(0, 0, 0, .15), 0 1px 3px rgba(0, 0, 0, .3);
+}
+
+.managePopupContainer {
+
+    padding-bottom: 20px;
+}
+
+.managePopupHeader {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.managePopupTitle {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+        margin-left: 90px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        margin-right: 70px;
+
+    }
+}
+
+.textBig {
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.75rem;
+}
+
+.sideBarLeftFooterBtn {
+    width: 300px;
+
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    font-size: 14px;
+    border-radius: 20px;
+    transition: all 0.3s;
+    color: var(--color-primary);
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #f4f4f4;
+    }
+}
 </style>
